@@ -9,33 +9,18 @@ from dotenv import load_dotenv
 #****DATA COLLECTION FOR AI****
 
 
-# Load environment variables from .env file
+# loading token from .env file
 load_dotenv()
 
 API_TOKEN = os.getenv('API_TOKEN')
-print(os.getenv('API_TOKEN'))
+
+# setting up my lichess API
+
 session = berserk.TokenSession(API_TOKEN)
 client = berserk.Client(session=session)
 
-def test_token(token):
-    url = "https://lichess.org/api/account"
-    headers = {
-        'Authorization': f'Bearer {token}'
-    }
-    
-    response = requests.get(url, headers=headers)
-    
-    if response.status_code == 200:
-        print("Token is valid!")
-        print(response.json())  # Account details should print here
-    else:
-        print(f"Error: {response.status_code}")
-
-# Replace 'your_lichess_api_token' with your actual token
-
-test_token(API_TOKEN)
-
-def fetch_lichess_games(username, token, max_games):
+# function that gets lichess data
+def fetch_lichess_games(username, token, max_games=10):
     # Lichess API endpoint to get user games
     url = f"https://lichess.org/api/games/user/{username}"
     
@@ -61,7 +46,7 @@ def fetch_lichess_games(username, token, max_games):
         print(f"Error: {response.status_code}")
         return None
 
-# Usage
+# Usage (here we can edit username, amnt of games we want to look at(capped at 10), and api_token)
 
 username = "sadisticTushi"
 
