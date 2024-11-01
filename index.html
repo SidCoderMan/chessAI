@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chess Coach</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- center video -->
+        <div class="video-section">
+            <video id="videoFeed" autoplay playsinline></video>
+        </div>
+
+        <!-- right feedback -->
+        <div class="feedback-section">
+            <h1>AI Chess Coach</h1>
+            <div class="input-section">
+                <label for="moveInput">Enter your move:</label>
+                <input type="text" id="moveInput" placeholder="e.g., e2 to e4">
+                <button id="coachBtn">Get Feedback</button>
+            </div>
+            <div id="feedback" class="feedback-output">
+                <p>Feedback: <span id="feedbackOutput">--</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
