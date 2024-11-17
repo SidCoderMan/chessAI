@@ -24,3 +24,9 @@ function getMoveFeedback(move) {
     }
     return `Move "${move}" looks solid! Consider controlling the center.`; // Example feedback
 }
+
+// Optional JavaScript for click toggle of instructions dropdown
+document.querySelector('.dropbtn').addEventListener('click', function() {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
